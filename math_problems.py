@@ -51,3 +51,43 @@ class Solution():
 sol = Solution()
 print(sol.reverse_integer(-123))
 
+
+
+
+
+print("----------------Number is palidrime-------------------------")
+# https://takeuforward.org/data-structure/check-if-a-number-is-palindrome-or-not
+class Solution():
+    def is_palindrome(self, n):
+        print(n)
+        initial_no = n
+        rev_no = 0
+        while n>0:
+            last_digit = n%10
+            rev_no = rev_no * 10 + last_digit
+            n = n //10
+        
+        return True if initial_no == rev_no else False
+        
+sol = Solution()
+print(sol.is_palindrome(123621))
+
+
+# optmized
+class Solution():
+    def is_palindrome(self, n):
+
+        # for negatvie number
+
+        if n < 0 or (n % 10 == 0 and n != 0):
+            return False
+        rev_no = 0
+        while n>rev_no:
+            last_digit = n%10
+            rev_no = rev_no * 10 + last_digit
+            n = n //10
+        return n == rev_no or n == rev_no // 10
+        
+sol = Solution()
+print(sol.is_palindrome(12))
+
