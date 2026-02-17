@@ -91,3 +91,71 @@ class Solution():
 sol = Solution()
 print(sol.is_palindrome(12))
 
+
+
+
+print("----------------Greatest Common Divisor------------------------")
+# https://takeuforward.org/data-structure/find-gcd-of-two-numbers
+class Solution():
+    def calculate_GCD(self, n1, n2):
+
+
+        factors1 = [ i for i in range(1, n1+1) if n1%i== 0 ]
+        factors2 = [ i for i in range(1, n2+1) if n2%i== 0 ]
+
+        print(factors1, factors2)
+
+        common_factors = []
+        if len(factors1) < len(factors2):
+            for i in factors1:
+                if i in factors2:
+                    common_factors.append(i)
+        else:
+            for i in factors2:
+                if i in factors1:
+                    common_factors.append(i)
+
+        return max(common_factors)
+
+
+sol = Solution()
+print(sol.calculate_GCD(20, 15))
+
+
+#optmized (better bruteforce)
+class Solution():
+    def calculate_GCD(self, n1, n2):
+
+        for i in range(min(n1,n2), 1, -1):
+            if n1%i == 0 and n2%i == 0:
+                return i
+            
+        
+        return 1
+
+sol = Solution()
+print(sol.calculate_GCD(20, 15))
+
+
+#euclidean algorithn 
+class Solution():
+    def calculate_GCD(self, a, b):
+        while b != 0:
+            a, b = b, a%b
+        return a
+
+sol = Solution()
+print(sol.calculate_GCD(15, 20))
+
+
+
+# using math
+
+import math
+class Solution():
+    def calculate_GCD(self, a, b):
+        return math.gcd(a,b)
+
+
+sol = Solution()
+print(sol.calculate_GCD(15, 20))
